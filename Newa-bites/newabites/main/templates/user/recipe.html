@@ -1,0 +1,621 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contents %}
+  
+
+
+    <style>
+        body {
+            background-color: #F9F5F0;
+        }
+
+        .bento-container {
+            background: #FFF8E1;
+            border: 4px solid #453c35;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 900px;
+        }
+
+        .bento-section {
+            border: 2px solid #efebe7;
+            background: #FAE0C1;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px;
+        }
+
+        .bento-section h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #B07B4B;
+        }
+
+        .ingredients-list,
+        .recipe-text {
+            text-align: left;
+        }
+
+        .nutrients-table {
+            margin: auto;
+        }
+
+        .bento-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .bento-section-half {
+            flex: 1 1 calc(48% - 10px);
+            margin-bottom: 20px;
+        }
+
+        .bento-section-full {
+            flex: 1 1 100%;
+        }
+
+        .ingredients-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ingredients-list li::before {
+            content: "🍴 ";
+        }
+        .about_section {
+            background-color: #fdf4f1;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .aboutusimg img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .fa-heart {
+            color: #ff5252;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .fa-heart:hover {
+            transform: scale(1.2);
+        }
+
+        .about_taital_main h1 {
+            color: rgb(70, 15, 15);
+            font-weight: bold;
+        }
+
+        .about-contents {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .btn {
+            background-color: rgb(70, 15, 15);
+            color: antiquewhite;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #5a0f0f;
+        }
+
+        .section h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: rgb(70, 15, 15);
+        }
+
+        /* css for flash card */
+        .nav-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            background-color: #FAE0C1;
+            border: 2px solid #efebe7;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-card i {
+            font-size: 2rem;
+            color: #B07B4B;
+        }
+
+        .card-title {
+            color: #B07B4B;
+            margin-bottom: 0;
+        }
+        
+    </style>
+
+
+
+    <!-- css for navbar  -->
+     
+<style>
+    /* General Navbar Styling */
+    .navbar {
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #ddd;
+    }
+    .navbar-brand {
+      font-size: 1.5rem;
+      color: #B07B4B;
+      font-weight: bold;
+    }
+    .navbar-brand:hover {
+      color: #A0683F;
+      text-decoration: none;
+    }
+    .nav-link {
+      color: #555;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 8px 12px;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #B07B4B;
+      background-color: #f2f2f2;
+      border-radius: 8px;
+    }
+    /* Active Link Styling */
+    .nav-link.active {
+      color: #fff;
+      /* background-color: #B07B4B; */
+      background-color: #e9d3ad;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    /* Logo Styling */
+    .logo {
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+  
+
+
+      <!-- flashcard for scroll and reach the respective section starts-->
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100 nav-card" onclick="document.querySelector('.ingredients-list').scrollIntoView({behavior: 'smooth'})">
+                <div class="card-body text-center">
+                    <i class="fas fa-utensils mb-3"></i>
+                    <h5 class="card-title">Ingredients</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 nav-card" onclick="document.querySelector('.recipe-text').scrollIntoView({behavior: 'smooth'})">
+                <div class="card-body text-center">
+                    <i class="fas fa-book-open mb-3"></i>
+                    <h5 class="card-title">Recipe</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 nav-card" onclick="document.getElementById('target').scrollIntoView({behavior: 'smooth'})">
+                <div class="card-body text-center">
+                    <i class="fas fa-history mb-3"></i>
+                    <h5 class="card-title">Historical Essence</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 nav-card" onclick="document.querySelector('.table').scrollIntoView({behavior: 'smooth'})">
+                <div class="card-body text-center">
+                    <i class="fas fa-chart-pie mb-3"></i>
+                    <h5 class="card-title">Nutrients</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 nav-card" onclick="document.querySelector('.tutorial-video').scrollIntoView({behavior: 'smooth'})">
+                <div class="card-body text-center">
+                    <i class="fas fa-video mb-3"></i>
+                    <h5 class="card-title">Tutorial Video</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+      <!-- flashcard for scroll and reach the respective section ends-->
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="about_section layout_padding">
+                    <div class="row align-items-center">
+                        <!-- Image Section -->
+                        <div class="col-lg-8 col-md-12 text-center">
+                            <div class="aboutusimg"  data-aos="fade-up" data-aos-duration="1000">
+                                <img src="../media/{{ data.image1 }}" alt="Yomari" class="images1">
+                            </div>
+                        </div>
+                        
+                        <!-- Content Section -->
+                        <div class="col-lg-4 col-md-12 text-lg-start text-center">
+                            <div class="mt-4 d-flex justify-content-lg-end justify-content-center">
+                                <!-- <i class="fa-solid fa-heart" style="font-size: 4rem;"></i> -->
+                            </div>
+                            
+                            <div class="section mt-5">
+                                <h1 data-aos="fade-up" data-aos-duration="1000">{{data.name}}</h1>
+                            </div>
+
+                            <div class="about_img1 mt-4" data-aos="fade-up" data-aos-duration="1000">
+                                <p class="about-contents">
+                                    {{ data.short_description }}
+                                </p>
+                                <button class="btn mt-3" onclick="document.getElementById('target').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+                                <a href="{% url 'recommendations' data.id %}" class="btn mt-3" >Visit Restro</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+       
+
+    
+
+
+    <style>
+        body {
+            background-color: #fdf4f1;
+        }
+        .bento-container {
+            padding: 40px;
+            border-radius: 15px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        .bento-section {
+            margin-bottom: 30px;
+        }
+        .bento-section h3 {
+            font-weight: bold;
+            color: #B07B4B;
+            margin-bottom: 20px;
+        }
+        .ingredients-list li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        .table th, .table td {
+            text-align: left;
+            font-size: 1rem;
+            color: #333;
+        }
+        .carousel {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+        .btn {
+            background-color: #B07B4B;
+            color: #fff;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .btn:hover {
+            background-color: #A0683F;
+            transform: scale(1.05);
+        }
+        .fa-heart {
+            color: #ff5252;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .fa-heart:hover {
+            transform: scale(1.2);
+        }
+    </style>
+
+    <div class="container bento-container">
+        <h1 class="text-center mb-4">Dish Details</h1>
+        <div class="row">
+            <!-- Ingredients Section -->
+            <div class="col-lg-6">
+                <div class="bento-section">
+                    <h3>Ingredients</h3>
+                    <ul class="ingredients-list">
+                        {% for ingredient in data.ingredient_list.all %}
+                        <li>{{ ingredient.name }}</li>
+                        {% empty %}
+                        <li>No ingredients available for this recipe.</li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{% url 'recommendations' data.id %}" class="btn">Where to Buy</a>
+                </div>
+            </div>
+            <!-- Nutrients Section --> 
+            <div class="col-lg-6">
+                <div class="bento-section">
+                    <h3>Nutrients</h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Nutrient</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Carbohydrates</td><td>{{ data.carbohydrate }}</td></tr>
+                            <tr><td>Protein</td><td>{{ data.protein }}</td></tr>
+                            <tr><td>Fat</td><td>{{ data.fat }}</td></tr>
+                            <tr><td>Calories</td><td>{{ data.calories }}</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe Section -->
+        <div class="bento-section">
+            <h3 class="recipe-text">Recipe</h3>
+            <p>{{ data.description }}</p>
+        </div>
+
+        <!-- Image Carousel -->
+        <div class="bento-section">
+            <div id="carouselExample" class="carousel slide" style="max-width: 600px; margin: auto;">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../media/{{ data.image1 }}" class="d-block w-100" alt="Image 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../media/{{ data.image2 }}" class="d-block w-100" alt="Image 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../media/{{ data.image3 }}" class="d-block w-100" alt="Image 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Historical Essence Section -->
+        <div class="bento-section">
+            <h3>Historical Essence</h3>
+            <p id="target">{{ data.historical_essence }}</p>
+        </div>
+
+        <div class="bento-section">
+            <h3>Date and Time</h3>
+            {% if data.date %}
+                <div class="calendar-wrapper">
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button id="prevMonth" class="calendar-nav">&lt;</button>
+                            <h4 id="currentMonth"></h4>
+                            <button id="nextMonth" class="calendar-nav">&gt;</button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div id="calendarGrid" class="calendar-grid"></div>
+                    </div>
+                    <!-- <div class="time-display">
+                        {{ data.date|date:"g:i A" }}
+                    </div> -->
+                </div>
+            {% else %}
+                <div class="recipe-date">
+                    <p>Trying new dishes needs no specific date and time! 🍽️</p>
+                </div>
+            {% endif %}
+        </div>
+        
+        <style>
+        .calendar-wrapper {
+            max-width: 400px;
+            margin: 20px auto;
+            background: #FFF8E1;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calendar-container {
+            width: 100%;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #6B4423;
+            color: #FAF3E0;
+            border-radius: 8px;
+        }
+        
+        .calendar-nav {
+            background: none;
+            border: none;
+            color: #FAF3E0;
+            font-size: 1.2em;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        
+        .calendar-day {
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #ffffff;
+        }
+        
+        .calendar-day:hover {
+            background: #FAF3E0;
+        }
+        
+        .calendar-day.highlight {
+            background: #6B4423;
+            color: #FAF3E0;
+        }
+        
+        .calendar-day.today {
+            border: 2px solid #6B4423;
+        }
+        
+        .time-display {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #6B4423;
+            color: #FAF3E0;
+            border-radius: 8px;
+            font-size: 1.2em;
+        }
+        
+        .recipe-date {
+            text-align: center;
+            padding: 15px;
+            background: #FFF8E1;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        </style>
+        
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const recipeDate = new Date("{{ data.date|date:'Y-m-d' }}");
+            const calendarGrid = document.getElementById('calendarGrid');
+            const currentMonthElement = document.getElementById('currentMonth');
+            let currentDate = new Date(recipeDate);
+        
+            function updateCalendar() {
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+                
+                currentMonthElement.textContent = new Date(year, month).toLocaleString('default', { month: 'long', year: 'numeric' });
+                
+                const firstDay = new Date(year, month, 1).getDay();
+                const lastDate = new Date(year, month + 1, 0).getDate();
+                
+                calendarGrid.innerHTML = '';
+                
+                // Add empty cells for days before first of month
+                for (let i = 0; i < firstDay; i++) {
+                    calendarGrid.appendChild(document.createElement('div'));
+                }
+                
+                // Add days of month
+                for (let day = 1; day <= lastDate; day++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.textContent = day;
+                    dayElement.className = 'calendar-day';
+                    
+                    // Highlight recipe date
+                    if (year === recipeDate.getFullYear() && 
+                        month === recipeDate.getMonth() && 
+                        day === recipeDate.getDate()) {
+                        dayElement.classList.add('highlight');
+                    }
+                    
+                    // Highlight today
+                    const today = new Date();
+                    if (year === today.getFullYear() && 
+                        month === today.getMonth() && 
+                        day === today.getDate()) {
+                        dayElement.classList.add('today');
+                    }
+                    
+                    calendarGrid.appendChild(dayElement);
+                }
+            }
+        
+            document.getElementById('prevMonth').addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                updateCalendar();
+            });
+        
+            document.getElementById('nextMonth').addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                updateCalendar();
+            });
+        
+            updateCalendar();
+        });
+        </script>
+
+        <!-- calendar section ends -->
+
+
+        <!-- Tutorial Videos Section -->
+        <div class="bento-section">
+            <h3>Tutorial Videos</h3>
+            <div class="tutorial-video">
+                <iframe width="100%" height="315" src="{{ data.tutorial_video_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <!-- bootstrap js link starts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- bootstrap js link ends -->
+
+{% endblock contents %}

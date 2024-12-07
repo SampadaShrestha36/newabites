@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contents %}
+    <style>
+        body {
+            background-color: #f7f1e3; /* Light coffee color */
+        }
+        .card {
+            background-color: #d3b58f; /* Coffee color for card background */
+            color: #4b3621; /* Dark coffee for text */
+            border: none;
+        }
+        .card img {
+            height: 100px;
+            width:150px;
+            object-fit: cover;
+            height: 100%; /* Ensure it spans the full card height */
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .container {
+            padding: 2rem;
+        }
+        h1 {
+            color: #4b3621; /* Dark coffee for the header */
+        }
+    </style>
+
+    <div class="container">
+        <h1 class="text-center mb-4">List of Foods</h1>
+        <div class="row g-4">
+            <!-- Card -->
+             {% for i in data %}
+               
+             
+            <div class="col-12">
+                <div class="card flex-row">
+                    <img src="../media/{{i.image1}}" class="card-img-left" alt="Food 1">
+                    <div class="card-body">
+                        <a href="{% url 'recipe' i.id %}"> <h5 class="card-title">{{i.name}}</h5></a>
+                        <p class="card-text">{{i.short_descroption}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endblock contents %}

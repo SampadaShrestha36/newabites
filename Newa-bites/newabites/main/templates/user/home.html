@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contents %}
+<div class="background" style="height:500px">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>A TASTE OF </h1>
+    <h1>NEWARI DELICACY</h1>
+    <div class="button-container"> <!--here-->
+      <a href="{% url 'listoffood' %}"><button class="styled-button">Explore with us</button></a> 
+    </div>
+  </div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <h2 style="text-align: center;">POPULAR RECIPES</h2>
+  <div class="main-container">
+    
+    <!-- Category 1 -->
+
+    <div class="category-box">
+        <img src="{% static 'images/yomari.jpg' %}" alt="Yomari" class="category-image">
+        <div class="category-content">
+            <div class="category-title">Yomari</div>
+            <a href="{% url 'listoffood' %}"> <h5 class="view-now-btn">View Now</h5></a>
+        </div>
+    </div>
+
+
+    <!-- Category 2 -->
+    <div class="category-box">
+        <img src="{% static 'images/chhaang.jpg' %}" alt="Chhyang" class="category-image">
+        <div class="category-content">
+            <div class="category-title">Chhyang</div>
+            <a href="{% url 'listoffood' %}" class="view-now-btn">View Now</a>
+        </div>
+    </div>
+
+    <!-- Category 3 -->
+    <div class="category-box">
+        <img src="{% static 'images/chhoila.jpg' %}" alt="chhoila" class="category-image">
+        <div class="category-content">
+            <div class="category-title">Chhoila</div>
+            <a href="{% url 'listoffood' %}" class="view-now-btn">View Now</a>
+        </div>
+    </div>
+
+    <!-- Category 4 -->
+    <div class="category-box">
+        <img src="{% static 'images/bara.jpg' %}" alt="bara" class="category-image" >
+        <div class="category-content">
+            <div class="category-title">Bara</div>
+            <a href="{% url 'listoffood' %}" class="view-now-btn">View Now</a>
+        </div>
+    </div>
+</div>
+</div>
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+      <!-- First Slide -->
+      <div class="carousel-item active">
+          <a href="https://example.com/first-slide"> <!-- Make the image clickable -->
+              <img src="{% static 'images/samaybaji.jpg' %}" class="d-block w-100" alt="First slide">
+          </a>
+          <div class="carousel-caption d-none d-md-block">
+              <h5>SAMAYBAJI</h5>
+          </div>
+      </div>
+      <!-- Second Slide -->
+      <div class="carousel-item">
+          <a href="https://example.com/second-slide"> <!-- Make the image clickable -->
+              <img src="{% static 'images/jujudhau.jpg' %}" class="d-block w-100" alt="Second slide">
+          </a>
+          <div class="carousel-caption d-none d-md-block">
+              <h5>JUJU DHAU</h5>
+          </div>
+      </div>
+      <!-- Third Slide -->
+      <div class="carousel-item">
+          <a href="https://example.com/third-slide"> <!-- Make the image clickable -->
+              <img src="{% static 'images/chyang.jpg' %} " class="d-block w-100" alt="">
+          </a>
+          <div class="carousel-caption d-none d-md-block">
+              <h5>CHHYANG</h5>
+          </div>
+      </div>
+  </div>
+
+  <!-- Carousel Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Black Background Container -->
+<div class="black-background pb-2">
+  <div class="container">
+      <h2>WHERE TO EAT??</h2>
+
+      <div class="main-container">
+          <!-- Category 1 -->
+          <div class="category-box">
+              <img src="{% static 'images/balakhu.jpg' %}" alt="" class="category-image">
+              <div class="category-content">
+                  <div class="category-title">Balakhu Food point</div>
+                  <a href="https://www.google.com/maps/place/Balakhu+Food+Point/@27.6728194,85.4267867,17z/data=!3m1!4b1!4m6!3m5!1s0x39eb1b61d803f241:0xdab77cb9834e80f3!8m2!3d27.6728194!4d85.4293616!16s%2Fg%2F11qh781_8z?entry=ttu&g_ep=EgoyMDI0MTIwMy4wIKXMDSoASAFQAw%3D%3D" class="view-now-btn">Visit</a>
+              </div>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="category-box">
+              <img src="{% static 'images/temple.jpg' %} " alt="De Temple Cafe" class="category-image">
+              <div class="category-content">
+                  <div class="category-title">De Temple Cafe</div>
+                  <a href="https://www.google.com/maps/place/De+Temple+Cafe/@27.6735855,85.43254,17z/data=!3m1!4b1!4m6!3m5!1s0x39eb1b744b5da953:0x1ffdcc3b936fdda8!8m2!3d27.6735855!4d85.4351149!16s%2Fg%2F11rjn26hr7?entry=ttu&g_ep=EgoyMDI0MTIwMy4wIKXMDSoASAFQAw%3D%3D" class="view-now-btn">Visit</a>
+              </div>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="category-box">
+              <img src="{% static 'images/cincin.jpg' %} " alt="" class="category-image">
+              <div class="category-content">
+                  <div class="category-title">Cin Cin Garden</div>
+                  <a href="https://www.google.com/maps?sca_esv=360d606574466e04&rlz=1C1GCEA_enNP1107NP1107&output=search&q=cin+cin+cafe&source=lnms&fbs=AEQNm0Aa4sjWe7Rqy32pFwRj0UkWd8nbOJfsBGGB5IQQO6L3J5m2RNdZ7TqBBDB_EAGU4N1KmHmEYoxnGi716uJtDrT4eEdU81FaKD7JFCkTt3L7dsdyJJ-qMev2T8ZNfdnH9dJey42Ri17wE9iXKg1xCysiLtRcZrsaTnGgLU_fQqHewup3ucI&entry=mc&ved=1t:200715&ictx=111" class="view-now-btn">Visit</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="container py-5">
+  <h1>NEWA-BITES</h1>
+  <p>Newa-Bites is your gateway to discovering the rich culinary heritage of the Newar community. Explore authentic Newari dishes, discover local shops, and experience the vibrant flavors of tradition. We aim to connect food lovers with the best Newari restaurants and home-cooked delicacies, preserving culture one bite at a time.</p>
+</div>
+
+{% endblock contents %}

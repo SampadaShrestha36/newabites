@@ -1,0 +1,436 @@
+.images1{
+    height: 100%;
+    width: 90%;
+    height: 80vh;
+    object-fit: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+  }
+  button:hover {
+    box-shadow: var(--hover-shadows);
+  }
+  
+  button:active {
+    box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
+    background-color: var(--accent);
+    transform: scale(0.95);
+  }
+  .navbar-expand-sm{
+    overflow: hidden;
+    background:#fff;
+    margin-top: -5px;
+}
+.nav a{
+    float: left;
+    color:000;
+    text-align:center;
+    padding: 20px 16px;
+    font-size:14px;
+    width:100px ;
+}
+
+
+.background {
+    background: url('../images/img.jpg') no-repeat center center/cover;
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  
+  /* Black transparent overlay */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity */
+    z-index: 1;
+  }
+
+  /* Content above the overlay */
+  .content {
+    position: relative;
+    z-index: 2; /* Ensure it's above the overlay */
+    color: #ffffff; /* Pure white text for brightness */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Adds depth and better visibility */
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    /* font-family: Arial, sans-serif; */
+  }
+
+  .content h1 {
+    font-size: 3em;
+    font-weight: bold;
+  }
+
+  .content p {
+    font-size: 1.5em;
+  }
+
+
+
+  .button-container {
+    text-align: center;
+  }
+  
+  .styled-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #161515;
+    background-color: #eef0f2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .styled-button:hover {
+    background-color: #525b61;
+    transform: scale(1.05);
+  }
+  
+  .styled-button:active {
+    background-color: #525b61;
+    transform: scale(0.95);
+  } 
+
+  .navbar-expand-sm{
+    overflow: hidden;
+    background:#fff;
+    margin-top: -5px;
+}
+.nav a{
+    float: left;
+    color:000;
+    text-align:center;
+    padding: 20px 16px;
+    font-size:14px;
+    width:100px ;
+    
+}
+
+
+.background {
+    background: url('../images/img.jpg') no-repeat center center/cover;
+    height: 600px;
+    width: 100%;
+    position: relative;
+  }
+
+ 
+
+  /* Black transparent overlay */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.571); /* Adjust opacity */
+    z-index: 1;
+  }
+
+  /* Content above the overlay */
+  .content {
+    position: relative;
+    z-index: 2; /* Ensure it's above the overlay */
+    color: #ffffff; /* Pure white text for brightness */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Adds depth and better visibility */
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+  
+  }
+
+  .content h1 {
+    font-size: 3em;
+    font-weight: bold;
+  
+  }
+
+  .content p {
+    font-size: 1.5em;
+  }
+
+
+
+  .button-container {
+    text-align: center;
+  }
+  
+  .styled-button {
+    padding: 10px 20px;
+    font-size: 16px;
+   
+    font-weight: bold;
+    color: #161515;
+    background-color: #eef0f2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .styled-button:hover {
+    background-color: #f0d826;
+    transform: scale(1.05);
+  }
+  
+  .styled-button:active {
+    background-color: #525b61;
+    transform: scale(0.95);
+  } 
+
+
+
+
+
+/* here */
+
+
+
+/* category selection */
+body {
+  /* font-family:'Times New Roman', Times, serif; */
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.category-box {
+  position: relative;
+  width: 20%; /* Ensures all boxes fit in one row */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.category-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.category-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.category-content {
+  padding: 15px;
+}
+
+.category-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+/* category button */
+.view-now-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f0d826;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.view-now-btn:hover {
+  background-color: #ffc002;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-container {
+      flex-wrap: wrap;
+      gap: 20px;
+  }
+
+  .category-box {
+      width: 48%; /* Two boxes per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .category-box {
+      width: 100%; /* One box per row on very small screens */
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-top: 100px;   /* Space above the heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+
+
+.carousel-item img {
+  width: 100%; /* Make images responsive */
+  height: 500px; /* Set a fixed height for the images */
+  object-fit: contain; /* Ensure images cover the container without stretching */
+  margin-bottom: 150px;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: black; /* Change control icon color */
+}
+
+/* Style the carousel captions */
+.carousel-caption {
+  /*background-color: rgb(255, 255, 255); /* Darker semi-transparent background */
+  padding: 5px 10px; /* Reduce padding to make the box smaller */
+  position: absolute;
+  bottom: 20px; /* Lower the caption slightly from the bottom */
+  left: 50%;
+  transform: translateX(-50%); /* Center the caption horizontally */
+  width: 52.25%; /* Reduce width to 30% of the carousel */
+  text-align: center; /* Center text inside the box */
+  margin-bottom: 92px;
+}
+
+/* Optional: Style the heading (h5) inside the caption */
+.carousel-caption h5 {
+  color: #0d0d0d; /* Change heading font color */
+  font-size: 20px; /* Reduce the font size for a smaller heading */
+}
+
+/* Optional: Style the paragraph (p) inside the caption */
+.carousel-caption p {
+  color: #fff; /* Change description font color */
+  font-size: 14px; /* Reduce the font size for a smaller description */
+}
+
+
+
+/* recommend */
+
+.black-background {
+  background-color: rgb(2, 2, 2); /* Set the background color to black */
+  color: white; /* Set the text color to white for contrast */
+  padding: px 0; /* Add padding to the top and bottom */
+}
+
+/* Container Styles */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+/* Center Heading */
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Main Container for Categories */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 140px;
+}
+
+/* Category Box Styles */
+.category-box {
+  color: black;
+  width: 250px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Category Image Styles */
+.category-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Category Content */
+.category-content {
+  padding: 5px;
+}
+
+/* Category Title Styles */
+.category-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+
+}
+
+/* Visit Button Styles */
+.view-now-btn {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #ffc320; /* this */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.view-now-btn:hover {
+  background-color: #944f0a;
+}
+
+/* Hover Effect for Category Box */
+.category-box:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+
+
+
+/* footer */
+footer {
+  background-color: rgb(194, 141, 84); /* Dark gray background */
+  color: rgb(90, 6, 6); /* White text */
+}
+
+footer a {
+  color: #ffffff; /* Yellow links */
+  text-decoration: none; /* Remove underline */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+footer hr {
+  border-top: 1px solid #495057; /* Light border for separation */
+}
+
+footer .text-center {
+  margin-top: 20px; /* Add spacing above copyright */
+}
+
